@@ -1,0 +1,14 @@
+﻿@model Hakone.Domain.ShopCommentInfo
+
+@if (Model != null)
+{
+    <div class="user-info clearfix">
+        <div class="user-icon float-left">
+            <img class="user-avatar img-responsive" src="@Model.Avatar.AvatarHandler(Model.UserId)"/>
+        </div>
+        <div class="user-more">
+            <span><a href="">@Model.UserName</a> 添加的店铺碎碎念：</span>
+            <p>@Model.CommentContent.Truncate(36)</p>
+        </div>
+    </div>
+}

@@ -1,0 +1,65 @@
+﻿@model Hakone.Web.Models.ShopFormModel
+<div class="row">
+    <table class="tbl-user-edit">
+        <tr>
+            <td class="lt">@Html.LabelFor(model => model.ShopName)：</td>
+            <td>
+                @Html.TextBoxFor(x => x.ShopName, new { @class = "txt" })
+                @Html.ValidationMessageFor(model => model.ShopName)
+            </td>
+        </tr>
+        <tr>
+            <td class="lt">@Html.LabelFor(model => model.CatId)：</td>
+            <td>
+                @Html.DropDownList("catId", ViewBag.ShopCats as IEnumerable<SelectListItem>, new { @class = "txt" })
+                @Html.ValidationMessageFor(model => model.CatId)
+            </td>
+        </tr>
+        <tr>
+            <td class="lt">@Html.LabelFor(model => model.Photo)：</td>
+            <td>
+                @Html.TextBoxFor(x => x.Photo, new { @class = "txt" })
+                @Html.ValidationMessageFor(model => model.Photo)
+            </td>
+        </tr>
+        <tr>
+            <td class="lt">@Html.LabelFor(model => model.MainBiz)：</td>
+            <td>
+                @Html.TextBoxFor(x => x.MainBiz, new { @class = "txt" })
+                @Html.ValidationMessageFor(model => model.MainBiz)
+            </td>
+        </tr>
+        <tr>
+            <td class="lt">@Html.LabelFor(model => model.ShopUrl)：</td>
+            <td>
+                @Html.TextBoxFor(x => x.ShopUrl, new {@class = "txt"})
+                @Html.ValidationMessageFor(model => model.ShopUrl)
+            </td>
+        </tr>
+        <tr>
+            <td class="lt">@Html.LabelFor(model => model.PromoteURL)：</td>
+            <td>
+                @Html.TextBoxFor(x => x.PromoteURL, new { @class = "txt" })
+                @Html.ValidationMessageFor(model => model.PromoteURL)
+            </td>
+        </tr>
+        <tr>
+            <td class="lt">@Html.LabelFor(model => model.ShopTags)：</td>
+            <td>
+                @Html.TextBoxFor(x => x.ShopTags, new { @class = "txt" })
+                @Html.ValidationMessageFor(model => model.ShopTags)
+            </td>
+        </tr>
+        <tr>
+            <td class="lt">@Html.LabelFor(model => model.ShortDesc)：</td>
+            <td>
+                @Html.TextAreaFor(x => x.ShortDesc, new { @class = "txt" })
+                @Html.ValidationMessageFor(model => model.ShortDesc)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input class="txt btn-submit" type="submit" value="提交"></td>
+        </tr>
+    </table>
+</div>

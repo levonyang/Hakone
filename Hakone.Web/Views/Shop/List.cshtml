@@ -1,0 +1,83 @@
+﻿@using Hakone.Domain
+@using Hakone.Domain.Enum
+@model Hakone.Web.Models.ShopListModel
+
+@{
+    var shopPre = string.Empty;
+    if (Model.ListFor == ShopListFor.recommend.ToString()) { shopPre = "推荐"; }
+    if (Model.ListFor == ShopListFor.selected.ToString()) { shopPre = "精选好店"; }
+    if (Model.ListFor == ShopListFor.hot.ToString()) { shopPre = "热门"; }
+
+    ViewBag.Title = Model.CatName + shopPre + Model.Keyword + " 店铺";
+    var recommendCss = Model.ListFor == ShopListFor.recommend.ToString() ? "selected" : "";
+    var selectedCss = Model.ListFor == ShopListFor.selected.ToString() ? "selected" : "";
+    var hotCss = Model.ListFor == ShopListFor.hot.ToString() ? "selected" : "";
+
+    var catUrl = Model.CatId.HasValue ? "/cat" + Model.CatId.Value.ToString() : string.Empty;
+
+    var recommendUrl = string.Format("/shop/{0}{1}", Model.ListFor == "recommend" ? "all" : "recommend", catUrl);
+    var hotUrl = string.Format("/shop/{0}{1}", Model.ListFor == "hot" ? "all" : "hot", catUrl);
+    var selectedUrl = string.Format("/shop/{0}{1}", Model.ListFor == "selected" ? "all" : "selected", catUrl);
+
+    if (Model.Keyword.IsNotNullOrEmpty())
+    {
+        recommendUrl += string.Format("?keyword={0}", Model.Keyword);
+        hotUrl += string.Format("?keyword={0}", Model.Keyword);
+        selectedUrl += string.Format("?keyword={0}", Model.Keyword);
+    }
+}
+<div class="grid grid-pad-big shop-nav-wrapper">
+    <div class="col-1-1 mobile-col-1-1">
+        <div class="shop-nav clearfix">
+            <ul class="clearfix">
+                <li class="shop-cat">
+                    <a href="javascript:void(0);">@Model.CatName<i class="iconfont"></i></a>
+                    <div class="shop-cat-list">
+                        <ul class="list-inline">
+                            <li class="title">美丽着装</li>
+                            <li><a href="/shop/@Model.ListFor/cat7011211">女装</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat6851886">女鞋</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat6373911">内衣</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat7170536">配饰</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat5895936">大小箱包</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat6692561">男装</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat6533236">男鞋</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat5417961">爱美丽</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat5577286">爱运动</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat6055261">家有宝贝</a></li>
+                        </ul>
+                        <ul class="list-inline clearfix">
+                            <li class="title">多彩生活</li>
+                            
+                            <li><a href="/shop/@Model.ListFor/cat6214586">居家</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat5258636">吃很重要</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat7329861">手机数码</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat5736611">电器</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat7648511">家具家饰</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat8285811">家纺</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat7967161">园艺</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat7807836">工艺</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat7489186">文娱</a></li>
+                            <li><a href="/shop/@Model.ListFor/cat8126486">营养保健</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="shop-option @recommendCss"><a href="@recommendUrl"><i class="iconfont"></i>新推荐</a></li>
+                <li class="shop-option @hotCss"><a href="@hotUrl"><i class="iconfont"></i>热门店铺</a></li>
+                <li class="shop-option @selectedCss"><a href="@selectedUrl"><i class="iconfont"></i>精选好店</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- 店铺列表 -->
+<div class="grid grid-pad-big shop-list">
+    @Html.Partial("_ShopList", Model.PagingShops.ToList(), new ViewDataDictionary { { "ListFor", Model.ListFor } })
+    <div class="col-1-1 pager">
+        @Html.Pager(Model.PagingShops.PageSize, Model.PagingShops.PageNumber, Model.PagingShops.TotalItemCount).Options(o => o
+            .MaxNrOfPages(5).SetPreviousPageText("&#171; 上一页 ").SetNextPageText("下一页 &#187;")
+            .AddRouteValue("keyword", Model.Keyword)
+            )
+    </div>
+</div>

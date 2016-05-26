@@ -1,0 +1,21 @@
+﻿@{
+    var colNumber = ViewBag.ColNumber ?? 3;
+}
+@model List<Hakone.Domain.Product>
+
+@foreach (var product in Model)
+{<div class="col-1-@colNumber mobile-col-1-2 product-item">
+        <div class="product-img">
+            <a title="@product.ProductName" target="_blank" href="@Url.Action("Detail","Product",new { id= product.ID})"><img class="lazy img-responsive" data-original="@product.Photo.GetPhotoBySize(400)" src="~/Image/lazyplace.png"></a>
+            @{Html.RenderAction("Actionbox", "Product", product);} 
+        </div>
+        <div class="product-title">
+            <p>
+                <a target="_blank" href="@Url.Action("Detail","Product",new { id= product.ID})">@product.ProductName.RemoveAdjProductName()</a>
+            </p>
+        </div>
+        <div class="product-price">
+            <p>¥@product.Price</p>
+            <div class="product-go"><a class="light" rel="nofollow" target="_blank" href="@Url.Action("redirect", "product", new { id = product.ID })"><i class="iconfont"> &#xe62a; </i></a></div>
+        </div>
+    </div>}

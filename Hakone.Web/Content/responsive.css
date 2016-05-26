@@ -1,0 +1,177 @@
+﻿@media (min-width: 640px) {
+    .product-list-selected .product-item {
+        width: 33.333%;
+    }
+}
+
+@media (max-width: 900px) {
+    li.mobile-search-icon{
+    display:block;
+}
+    .site-nav{
+        padding-right:0;
+    }
+}
+
+@media (min-width: 900px) {
+    .product-list-selected .product-item {
+        width: 25%;
+    }
+    .site-search{
+        display:block;
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-detail .product-detail-right .other-product ul li {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .product-list-selected .product-item {
+        width: 20%;
+    }
+}
+
+
+@media (max-width: 640px) {
+    a.light {
+        color: #dadada;
+    }
+
+    .actionbox {
+        display: block;
+    }
+
+    .shop-list .shop-item {
+        padding-right: 0px;
+        margin-bottom: 40px;
+    }
+
+        .shop-list .shop-item .shop-item-info {
+            background-color: #f6f8f9;
+            border-bottom: 1px dotted #ecf0f1;
+        }
+
+    .product-list .product-item {
+        padding-right: 20px;
+    }
+
+    .grid {
+        padding-right: 20px;
+    }
+
+    .product-list-shop {
+        padding-right: 0px;
+    }
+    /*product detail*/
+    .product-detail .product-detail-left {
+        padding-right: 0px;
+        border-right: 0;
+    }
+
+    .mobile-col-1-1 {
+        padding-right: 0px !important;
+    }
+
+    .product-detail .product-detail-right > div {
+        padding-left: 0px;
+    }
+
+    .product-detail .product-detail-right .product-go {
+        margin-right: 0;
+    }
+
+        .product-detail .product-detail-right .product-go ul li {
+            padding-right: 0;
+        }
+
+    .product-detail .product-detail-right .other-product ul li {
+        width: 100px;
+        height: 100px;
+    }
+    /*product detail end*/
+    /*顶部导航*/
+    .site-nav {
+        padding-left: 25px;
+        width: 100%;
+    }
+
+    .site-logo {
+        padding-top: 5px;
+    }
+
+    .site-account > div {
+        padding: 0 8px;
+    }
+
+        .site-account > div > a {
+            padding: 5px 20px;
+        }
+
+    .site-logo {
+        width: 80px;
+        padding-left: 5px;
+    }
+
+    .site-nav-item > a {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .mega-nav {
+        width: 210px;
+        padding-left: 24px;
+    }
+
+        .mega-nav ul {
+            width: 80px;
+        }
+
+    /*店铺列表导航*/
+    .shop-nav-wrapper {
+        padding-top: 10px;
+        padding-right: 10px;
+    }
+
+        .shop-nav-wrapper > div {
+            padding-right: 0px !important;
+        }
+
+    .shop-nav > ul > li {
+        padding: 10px 2px;
+    }
+
+
+
+    .grid-pad-big {
+        padding-left: 20px;
+    }
+
+    .page-account .page-account-content {
+        width: 100%;
+    }
+
+        .page-account .page-account-content .page-account-content-right,
+        .page-account .page-account-content .page-account-content-left {
+            width: 100%;
+        }
+
+    .shop-detail .shop-selected-stamp {
+        top: 80px;
+        right: 5px;
+    }
+}
+
+@media (max-width: 320px) {
+    .site-nav {
+        padding: 0 0 0 8px;
+    }
+    .site-nav-item > a{
+        padding-left:3px;
+        padding-right:3px;
+    }
+
+}

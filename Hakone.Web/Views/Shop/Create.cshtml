@@ -1,0 +1,16 @@
+﻿@model Hakone.Web.Models.ShopFormModel
+@{
+    ViewBag.Title = "添加店铺";
+    Layout = "~/Views/Shared/_BlankLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Save", "Shop", FormMethod.Post, new { @role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            @Html.Partial("_CreateOrEdit", Model)
+        }
+    </div>
+</div>

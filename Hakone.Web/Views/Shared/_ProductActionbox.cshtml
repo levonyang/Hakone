@@ -1,0 +1,15 @@
+﻿@model Hakone.Web.Models.ProductActionboxModel
+
+<div class="actionbox">
+    @Html.Raw(Model.CollectActionboxHtml)
+    @if (Request.IsAuthenticated && (HttpContext.Current.User.IsInRole("Editor") || HttpContext.Current.User.IsInRole("Administrator")))
+    {
+        <a class="recommend" onclick="productRecommendClick(@Model.ProductId, true);" title="推荐单品" href="@CommonHelper.AjaxActionLink()"><i class="iconfont"> &#xe615;</i></a>
+        if (HttpContext.Current.User.IsInRole("Administrator"))
+        {
+            <a onclick="productGoup(@Model.ProductId);" title="置顶该商品" href="@CommonHelper.AjaxActionLink()"><i class="iconfont"> &#xe62c;</i></a>
+            <a onclick="productDeleteClick(@Model.ProductId);" title="删除该商品" href="@CommonHelper.AjaxActionLink()"><i class="iconfont"> &#xe623;</i></a>
+        }
+    }
+</div>
+

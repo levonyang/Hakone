@@ -1,0 +1,33 @@
+﻿<div class="wrapper clearfix">
+    <p class="line-title">
+    @if (ViewBag.IsRecommend == 1 || ViewBag.CatId != 0) 
+    { 
+        <span>精选单品</span>
+    }
+    else
+    {
+        <span>商品列表</span>
+    }
+    </p>
+</div>
+<div class="wrapper index-cat clearfix js-product-cat">
+    <ul class="list-inline">
+        <li><a id="0" href="@Url.RouteUrl("product_list_cat",new { catId = 0, s=ViewBag.Keyword, r=ViewBag.IsRecommend })">全部</a></li>
+        <li>/</li>
+        <li><a id="50549530" href="@Url.RouteUrl("product_list_cat",new { catId = 50549530, s=ViewBag.Keyword, r=ViewBag.IsRecommend })">女装</a></li>
+        <li>/</li>
+        <li><a id="50546454" href="@Url.RouteUrl("product_list_cat", new { catId = 50546454, s = ViewBag.Keyword, r = ViewBag.IsRecommend })">男装</a></li>
+        <li>/</li>
+        <li><a id="50551068" href="@Url.RouteUrl("product_list_cat", new { catId = 50551068, s = ViewBag.Keyword, r = ViewBag.IsRecommend })">配饰</a></li>
+        <li>/</li>
+        <li><a id="50538764" href="@Url.RouteUrl("product_list_cat", new { catId = 50538764, s = ViewBag.Keyword, r = ViewBag.IsRecommend })">居家生活</a></li>
+        <li>/</li>
+        <li><a id="50560296" href="@Url.RouteUrl("product_list_cat", new { catId = 50560296, s = ViewBag.Keyword, r = ViewBag.IsRecommend })">家具家饰</a></li>
+        <li>/</li>
+        <li><a id="50555682" href="@Url.RouteUrl("product_list_cat", new { catId = 50555682, s = ViewBag.Keyword, r = ViewBag.IsRecommend })">家有宝贝</a></li>
+        <li>/</li>
+        <li><a id="50552606" href="@Url.RouteUrl("product_list_cat", new { catId = 50552606, s = ViewBag.Keyword, r = ViewBag.IsRecommend })">手机数码</a></li>
+        <li>/</li>
+        <li><a id="50540302" href="@Url.RouteUrl("product_list_cat", new { catId = 50540302, s = ViewBag.Keyword, r = ViewBag.IsRecommend })">吃喝</a></li>
+    </ul>
+</div>

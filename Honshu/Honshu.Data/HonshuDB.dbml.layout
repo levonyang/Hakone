@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 11.125" name="HonshuDB">
+  <DataContextMoniker Name="/HonshuDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="059a07c9-7276-4c45-803d-a7f7ad87efae" absoluteBounds="0.75, 0.75, 2, 1.9068933105468751">
+      <DataClassMoniker Name="/HonshuDBDataContext/ProductCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="758fc08b-90b5-4583-b2c0-fd8819230895" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6bf7b1ee-2528-44a9-89c6-ed9e6b644830" absoluteBounds="3.75, 0.75, 2, 4.4940108235677076">
+      <DataClassMoniker Name="/HonshuDBDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="686967d9-b5c9-4a7e-88fc-9873c412f0dc" absoluteBounds="3.765, 1.21, 1.9700000000000002, 3.934010823567708" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c6f33f97-4723-4e82-8cd3-ead073558892" absoluteBounds="6.75, 0.75, 2, 1.3525109863281253">
+      <DataClassMoniker Name="/HonshuDBDataContext/ShopCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c726ea4e-8673-438f-9840-799837d6c75e" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a2225dd0-f015-4e4e-a80b-3d972744def0" absoluteBounds="0.75, 6.75, 2, 1.9068933105468755">
+      <DataClassMoniker Name="/HonshuDBDataContext/ShopComment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="47f7ccf8-b5b0-48c2-a265-6e0e06057cd0" absoluteBounds="0.765, 7.21, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4e035638-ca66-42c6-a462-7ed5e68a15ff" absoluteBounds="6.75, 3.75, 2, 7.0811283365885416">
+      <DataClassMoniker Name="/HonshuDBDataContext/Shop" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a8d8fc5c-9c95-4b6c-97bd-63d2cc79a060" absoluteBounds="6.765, 4.21, 1.9700000000000002, 6.5211283365885411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

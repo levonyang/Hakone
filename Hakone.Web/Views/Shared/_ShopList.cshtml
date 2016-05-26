@@ -1,0 +1,35 @@
+﻿@{
+    var number = 0;
+    
+}
+@model List<Hakone.Domain.ShopES>
+
+@foreach (var shopItem in Model.OrderByRandom())
+{
+    number++;
+    var inLastLine = number > Model.Count() - 3 ? "last-line" : "";
+    var colFirstItem = number % 3 == 1 ? "first-item" : "";
+    var numberProduct = 0;
+    <div class="col-1-3 shop-item @inLastLine @colFirstItem">
+        <div class="item-product">
+            <ul>
+                @if (shopItem.ProductPhotos.IsNotNullOrEmpty())
+                {
+                    foreach (var photo in shopItem.ProductPhotos.Split(','))
+                    {
+                        numberProduct++;
+                    <li class="shop-item-@numberProduct"><a href="/dian/@shopItem.ID"><img class="lazy img-responsive" alt="" data-original="@photo.GetPhotoBySize(320)" src="~/Image/lazyplace.png"></a></li>
+                    }
+                }
+            </ul>
+            @{Html.RenderAction("Actionbox", "Shop", shopItem);}
+        </div>
+        <div class="shop-item-info">
+            <!-- 店铺信息 -->
+            <div class="shop-info clearfix">
+                <div class="shop-icon float-left"><img class="img-responsive" src="@shopItem.Photo" /></div>
+                <div class="shop-title"><span><a class="black" href="/dian/@shopItem.ID">@shopItem.ShopName</a></span></div>
+            </div><!-- 用户信息 -->@{ Html.RenderAction("ShopCommentInfo", "Shop", new { shopId = shopItem.ID }); }
+        </div>
+    </div>
+}

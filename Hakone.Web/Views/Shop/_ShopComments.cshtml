@@ -1,0 +1,13 @@
+﻿@model IPagedList<Hakone.Domain.ShopCommentInfo>
+@foreach (var comment in Model)
+{
+    <div class="col-1-12 mobile-col-1-6 shop-product-form-comment-icon">
+        <img class="user-avatar img-responsive" src="@comment.Avatar.AvatarHandler(@comment.UserId)">
+    </div>
+    <div class="col-11-12 mobile-col-10-12">
+        <a href="">@comment.UserName</a> @comment.CommentFlag.CommentFlagHandler()：
+        <p>@comment.CommentContent</p>
+    </div>
+    @*<div class="col-1-12 mobile-col-0-6"></div>*@
+    <div class="col-1-1 mobile-col-1-1"><div class="comment-gap"></div></div>
+}

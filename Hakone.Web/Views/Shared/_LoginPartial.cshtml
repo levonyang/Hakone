@@ -1,0 +1,23 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <div class="float-right site-register site-my-account" style="min-width:120px;text-align:center;"><a class="white" href="javascript:void(0);">@Context.User.Identity.Name<i class="iconfont"> &#xe600;</i></a>
+    <div class="nav-user-backend">
+        <ul>
+            @if (Request.IsAuthenticated && (HttpContext.Current.User.IsInRole("Editor") || HttpContext.Current.User.IsInRole("Administrator")))
+            {
+                <li><a href="@Url.Action("entire", "shop")">店铺操作</a></li>
+            }
+            <li><a href="@Url.Action("favoriteshop", "my")">我收藏的店铺</a></li>
+            <li><a href="@Url.Action("favoriteproduct", "my")">我收藏的商品</a></li>
+            <li><a href="@Url.Action("profilesetting", "my")">个人资料</a></li>
+            <li><a href="@Url.Action("changepassword", "my")">修改密码</a></li>
+            <li><a href="@Url.Action("logout", "account")">登出</a></li>
+        </ul>
+    </div>
+    </div>
+}
+else
+{
+    <div class="float-left site-login"><a class="white" href="@Url.Action("login", "account", new { ReturnUrl = HttpContext.Current.Request.RawUrl })">登录</a></div>
+    <div class="float-right site-register"><a class="white" href="@Url.Action("register", "account", new { ReturnUrl = HttpContext.Current.Request.RawUrl })">注册</a></div>
+}

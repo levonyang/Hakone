@@ -1,0 +1,16 @@
+﻿@model Hakone.Web.Models.ShopFormModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_BlankLayout.cshtml";
+}
+@using (Html.BeginForm("Save", "Shop"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.ID)
+    @Html.Partial("_CreateOrEdit", Model)
+}
+<script type="text/javascript">
+    //document.getElementById("MainBiz").value = "美容护肤";
+    //document.getElementById("catId").value = "5417961";
+</script>

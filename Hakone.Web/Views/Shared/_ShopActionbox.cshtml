@@ -1,0 +1,15 @@
+﻿@model Hakone.Web.Models.ShopActionboxModel
+<div class="actionbox">
+    @Html.Raw(Model.CollectActionboxHtml)
+    @Html.Raw(Model.RecommendActionboxHtml)
+    @if (Request.IsAuthenticated && (HttpContext.Current.User.IsInRole("Editor") || HttpContext.Current.User.IsInRole("Administrator")))
+    {
+        @Html.Raw(Model.HotActionboxHtml)
+        @Html.Raw(Model.SelectedActionboxHtml)
+        <a id="editshop" onclick="shopEditClick(@Model.ShopId)" title="编辑店铺信息" href="@CommonHelper.AjaxActionLink()"><i class="iconfont"> &#xe624;</i></a>
+        if (HttpContext.Current.User.IsInRole("Administrator"))
+        {
+            <a id="deleteshop" onclick='shopDeleteClick(@Model.ShopId)' title="删除店铺" href="@CommonHelper.AjaxActionLink()"><i class="iconfont"> &#xe623;</i></a>
+        }
+    }
+</div>

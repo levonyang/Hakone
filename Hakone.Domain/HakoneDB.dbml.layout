@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.75, 13.5" name="HakoneDB">
+  <DataContextMoniker Name="/HakoneDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="fea132aa-31ec-44d6-b336-3abf1c5785d7" absoluteBounds="3.75, 0.75, 2, 2.2764815266927085">
+      <DataClassMoniker Name="/HakoneDBDataContext/OAuth2" />
+      <nestedChildShapes>
+        <elementListCompartment Id="75adee78-a824-45a6-a4a8-76951bf8d1d7" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6ccaa4de-5bb8-4c15-9630-05ae110899fb" absoluteBounds="3.75, 4.75, 2, 1.1677168782552094">
+      <DataClassMoniker Name="/HakoneDBDataContext/UserRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e992180d-7df4-49d8-ba36-0c4f05dc3f8e" absoluteBounds="3.765, 5.21, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="93732427-92f5-4de3-9ff9-aa5337972392" absoluteBounds="6.75, 0.75, 2, 1.9068933105468753">
+      <DataClassMoniker Name="/HakoneDBDataContext/ProductCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b71a8dba-38ac-4ee5-b24d-e24d9942a779" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9f67023d-d8ba-4a36-b162-a930b54013ff" absoluteBounds="0.75, 7.75, 2, 1.3525109863281246">
+      <DataClassMoniker Name="/HakoneDBDataContext/ShopCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="009811f7-61c0-4e6b-9378-a139acfea3ce" absoluteBounds="0.765, 8.21, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="594f99a0-ac7a-4912-bd89-4696221e0480" absoluteBounds="9.75, 0.75, 2, 1.9068933105468753">
+      <DataClassMoniker Name="/HakoneDBDataContext/ShopComment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="764535a6-e70c-4eb8-a847-8648d83cbbfd" absoluteBounds="9.765, 1.21, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="17f726eb-2e0a-4df2-8adf-cc1f33cebcfd" absoluteBounds="0.75, 0.75, 2, 5.7875695800781246">
+      <DataClassMoniker Name="/HakoneDBDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f0d31e3-fc43-4c50-997c-658f6f30cb28" absoluteBounds="0.765, 1.21, 1.9700000000000002, 5.227569580078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bfd8b073-f1de-4fb9-aaa2-9e42ad162e1a" absoluteBounds="6.75, 11.75, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/HakoneDBDataContext/UserFavProduct" />
+      <nestedChildShapes>
+        <elementListCompartment Id="43d2d8ab-3ca9-476a-942f-882c23dd6049" absoluteBounds="6.765, 12.21, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="21353d0c-daad-446f-8bc4-68826e51ee02" absoluteBounds="9.75, 11.75, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/HakoneDBDataContext/UserFavShop" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9a59322e-80a2-458c-b8ba-4d00023fa504" absoluteBounds="9.765, 12.21, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.45923076923077 : 6.53756958007812); (1.45923076923077 : 6.78756958007812); (2.05461538461538 : 6.78756958007812); (2.05461538461538 : 6.53756958007812)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HakoneDBDataContext/User/User_User" />
+      <nodes>
+        <classShapeMoniker Id="17f726eb-2e0a-4df2-8adf-cc1f33cebcfd" />
+        <classShapeMoniker Id="17f726eb-2e0a-4df2-8adf-cc1f33cebcfd" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="88790424-2810-46d3-bc98-7793a2b1eeb0" absoluteBounds="6.625, 3.25, 2, 4.4940108235677076">
+      <DataClassMoniker Name="/HakoneDBDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="50728be7-1b67-4568-8da8-f4c9e7fd8682" absoluteBounds="6.64, 3.71, 1.9700000000000002, 3.934010823567708" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="32e56155-21f7-4af6-917b-d08f7b8baea2" absoluteBounds="12.5, 0.625, 2, 7.0811283365885407">
+      <DataClassMoniker Name="/HakoneDBDataContext/Shop" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7627d4de-0314-4eb5-9a25-9c7e247bdacd" absoluteBounds="12.515, 1.085, 1.9700000000000002, 6.5211283365885411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

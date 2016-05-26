@@ -1,0 +1,12 @@
+﻿@if (ViewBag.ErrorMsg != null)
+{
+    <div id="alert-error" class="alert alert-error">@Html.Raw(ViewBag.ErrorMsg)</div>
+}
+@if (ViewBag.SuccessMsg != null)
+{
+    <div id="alert-success" class="alert alert-success">@Html.Raw(@ViewBag.SuccessMsg)</div>
+}
+@if (ViewBag.WarningMsg != null)
+{
+    <div id="alert-warning" class="alert alert-warning">@Html.Raw(@ViewBag.WarningMsg)</div>
+}

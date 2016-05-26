@@ -1,0 +1,100 @@
+﻿@model Hakone.Web.Models.ShopDetailModel
+
+@{
+    ViewBag.Title = Model.Shop.ShopName;
+    ViewBag.CssClass = "tran-body";
+
+    var defaultOrderByCss = ViewBag.OrderBy == Hakone.Domain.Enum.ShopProductsOrderBy.dft.ToString() ? "selected" : "";
+    var newUpOrderByCss = ViewBag.OrderBy == Hakone.Domain.Enum.ShopProductsOrderBy.newup.ToString() ? "selected" : "";
+    var salesOrderByCss = ViewBag.OrderBy == Hakone.Domain.Enum.ShopProductsOrderBy.sales.ToString() ? "selected" : "";
+    var emptyStr = string.Empty;
+    var shopGoTxt = Model.Shop.ShopUrl.Contains("tmall") ? "天猫店铺" : "淘宝店铺";
+    ViewBag.Title += " " + shopGoTxt.Replace("铺", "");
+    shopGoTxt = "进入" + shopGoTxt;
+}
+
+<!-- 店铺详情 -->
+<div class="grid grid-pad tran-content shop-detail">
+    <div class="col-1-1  mobile-col-1-1 shop-title clearfix">
+        <div>
+            <p class="">@Model.Shop.ShopName @Html.Raw(Model.CollectionHtml)</p>
+        </div>
+        <div class="shop-go"><a class="out-link" rel="nofollow" target="_blank" href="@Model.Shop.PromoteURL">@shopGoTxt <i class="iconfont"> &#xe62a; </i></a></div>
+    </div>
+    <div class="col-1-12 mobile-col-1-4">
+        <div><a href=""><img class="shop-logo img-responsive" src="@Model.Shop.Photo"></a></div>
+    </div>
+    <div class="col-10-12 mobile-col-2-3 shop-description">
+        <p style="margin-top:0;">主营商品：@Model.Shop.MainBiz</p>
+        <p>风格标签：@Model.Shop.ShopTags</p>
+        <p>@Model.Shop.ShortDesc</p>
+    </div>
+    <div class="col-1-12 mobile-col-1-12">
+    </div>
+    <div class="col-1-1 mobile-col-1-1">
+        <div class="shop-product-nav">
+            <ul class="list-inline">
+                <li><a class="shop-product-nav-product selected" href="javascript:void(0);">店内商品</a></li>
+                <li><a class="shop-product-nav-comment" href="javascript:void(0);">店铺评论</a></li>
+            </ul>
+        </div>
+    </div>
+    @if (Model.Shop.IsSelected) 
+    { 
+        <div class="shop-selected-stamp"><img src="~/Image/beststamp.png" /> </div>
+    }
+</div>
+<!-- 店铺商品 -->
+<div class="grid grid-pad shop-product tran-content">
+    <div class="col-1-1 mobile-col-1-1 shop-product-orderby">
+        <div class="shop-product-order">
+            <ul class="list-inline">
+                <li><a class="@defaultOrderByCss" href="@Url.RouteUrl("shopproductlist_2", new { id = Model.Shop.ID, page = 1 })">默认排序</a></li>
+                <li><a class="@newUpOrderByCss" href="@Url.RouteUrl("shopproductlist_1", new { id = Model.Shop.ID, page = 1, orderby = Hakone.Domain.Enum.ShopProductsOrderBy.newup.ToString() })">最新商品</a></li>
+                <li><a class="@salesOrderByCss" href="@Url.RouteUrl("shopproductlist_1", new { id = Model.Shop.ID, page = 1, orderby = Hakone.Domain.Enum.ShopProductsOrderBy.sales.ToString() })">热卖商品</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-1-1 mobile-col-1-1 shop-product-form-comment">
+        @using (Html.BeginForm("AddComment", "Shop", FormMethod.Post, new { id = "shop-comment-post" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="grid grid-pad">
+                <div class="col-1-12 mobile-col-1-6 shop-product-form-comment-icon">
+                    <img class="user-avatar img-responsive" src="@emptyStr.AvatarHandler((int)ViewBag.UserId)">
+                </div>
+                <div class="col-10-12 mobile-col-2-3 shop-product-form-comment-content">
+                    @Html.TextArea("CommentContent", new { @class = "txt" })
+                    @Html.Hidden("shopId", @Model.Shop.ID)
+                </div>
+                <div class="col-1-12 mobile-col-1-6">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <input class="txt btn-submit btn-submit-shop-comment" type="submit" value="提交">
+                    }
+                    else
+                    {
+                        <input disabled="disabled" class="txt btn-submit btn-submit-shop-comment disabled" type="submit" value="提交">
+                        <p class="disabled-tips"><a href="@Url.Action("login", "account", new { ReturnUrl = HttpContext.Current.Request.RawUrl })">请先登录</a></p>
+                    }
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- 商品列表 -->
+<div class="grid grid-pad-big tran-content product-list product-list-shop">
+    @Html.Partial("_ProductList", Model.Products)
+
+    <div class="col-1-1 pager">
+        @Html.Pager(Model.Products.PageSize, Model.Products.PageNumber, Model.Products.TotalItemCount).Options(o => o
+            .MaxNrOfPages(5).SetPreviousPageText("&#171; 上一页 ").SetNextPageText("下一页 &#187;")
+            )
+    </div>
+    <div class="shop-go"><a class="out-link" rel="nofollow" target="_blank" href="@Model.Shop.PromoteURL">@shopGoTxt <i class="iconfont"> &#xe62a; </i></a></div>
+</div>
+<div class="grid grid-pad-big tran-content shop-comment-list">
+    @{ Html.RenderAction("Comments", "Shop", new { shopId = Model.Shop.ID });}
+</div>

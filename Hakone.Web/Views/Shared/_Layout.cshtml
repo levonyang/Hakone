@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="@ViewBag.MetaDescription">
+    <meta name="baidu-site-verification" content="LVjFl17drR" />
+    <title>@ViewBag.Title - 好店8 好店吧</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @if (CommonHelper.IsMobileDevice())
+    {
+        <link rel="apple-touch-icon" href="/image/mobile-icon.png"/>
+        <link rel="icon" sizes="192x192" href="/image/mobile-icon.png">
+        <meta name="theme-color" content="#333344">
+        <meta name="msapplication-navbutton-color" content="#333344">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#333344">
+    }
+</head>
+<body class="@ViewBag.CssClass">
+<div class="wrapper site-header clearfix">
+    <div class="float-left site-logo">
+        <a href="/"><img id="logo-img" alt="" src="/image/logo@2x.png" width="76" height="21"></a>
+    </div>
+    <div class="float-right site-account">
+        @Html.Partial("_LoginPartial")
+    </div>
+    <div class="float-left site-nav">
+        <ul class="list-inline">
+            <li class="site-nav-item"><a href="/shop/selected">精选好店</a></li>
+            <li class="site-nav-item"><a href="/shop/hot">热门</a></li>
+            <li class="site-nav-item site-nav-item-mega">
+                <a href="javascript:void(0);">
+                    全部店铺<i class="iconfont"> &#xe600;</i>
+                </a>
+                <div class="mega-nav">
+                    <ul class="list-block">
+                        <li class="title">美丽着装</li>
+                        <li><a href="/shop/all/cat7011211">女装</a></li>
+                        <li><a href="/shop/all/cat6851886">女鞋</a></li>
+                        <li><a href="/shop/all/cat6373911">内衣</a></li>
+                        <li><a href="/shop/all/cat7170536">配饰</a></li>
+                        <li><a href="/shop/all/cat5895936">大小箱包</a></li>
+                        <li><a href="/shop/all/cat6692561">男装</a></li>
+                        <li><a href="/shop/all/cat6533236">男鞋</a></li>
+                        <li><a href="/shop/all/cat5417961">爱美丽</a></li>
+                        <li><a href="/shop/all/cat5577286">爱运动</a></li>
+                        <li><a href="/shop/all/cat6055261">家有宝贝</a></li>
+                    </ul>
+                    <ul class="list-block">
+                        <li class="title">多彩生活</li>
+                        <li><a href="/shop/all/cat6214586">居家生活</a></li>
+                        <li><a href="/shop/all/cat5258636">吃很重要</a></li>
+                        <li><a href="/shop/all/cat7329861">手机数码</a></li>
+                        <li><a href="/shop/all/cat5736611">大电器</a></li>
+                        <li><a href="/shop/all/cat7648511">家具家饰</a></li>
+                        <li><a href="/shop/all/cat8285811">家纺</a></li>
+                        <li><a href="/shop/all/cat7967161">园艺绿植</a></li>
+                        <li><a href="/shop/all/cat7807836">工艺陶瓷</a></li>
+                        <li><a href="/shop/all/cat7489186">文娱</a></li>
+                        <li><a href="/shop/all/cat8126486">营养保健</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="site-nav-item"><a href="/product/list">单品</a></li>
+            <li class="site-nav-item mobile-search-icon"><a href="javascript:void(0);"><i class="iconfont"> &#xe60d; </i></a></li>
+            @if (Request.IsAuthenticated && (HttpContext.Current.User.IsInRole("Editor") || HttpContext.Current.User.IsInRole("Administrator")))
+            {
+                <li class="site-nav-item shop-publish"><a href="javascript:void(0);"><i class="iconfont"> &#xe60b;</i> 添加店铺</a></li>
+            }
+        </ul>
+    </div>
+    <div class="float-left site-search">
+        <span><i class="iconfont"> &#xe60d; </i><input value="@ViewBag.Keyword" readonly="readonly" type="text" placeholder="点击搜索..."></span>
+    </div>
+
+</div>
+
+@RenderBody()
+
+ @Html.Partial("_SearchBox")
+<div class="grid grid-pad footer">
+    <div class="col-1-2">
+        <p>&copy; @DateTime.Now.Year <a class="gray" href="/">haodian8.com</a> <a class="gray" href="/dian">好多店铺</a> 沪ICP备09012068号</p>
+    </div>
+    <div class="col-1-2 footer-contact">
+        <p>联系我们：<span id="contact-email"></span></p>
+    </div>
+</div>
+
+@Html.Partial("_AlertInfo")
+
+@Scripts.Render("~/bundles/site")
+@RenderSection("scripts", required: false)
+</body>
+</html>
+<div style="display:none;">
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_2006956'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/stat.php%3Fid%3D2006956' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fea47b52f0bb6b4de088c5eaba483f45";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+</div>

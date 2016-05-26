@@ -1,0 +1,36 @@
+﻿<div class="search-box">
+
+    <h3 class="clearfix">搜索商品：</h3>
+    @using (Html.BeginForm("list", "product", new { catId = 0 }, FormMethod.Get))
+    {
+        @Html.TextBox("s", "", new { @class = "txt", placeholder = "输入搜索关键字..." })
+        @Html.Hidden("r","0")
+        <button class="btn-search btn-submit"><i class="iconfont"> &#xe60d; </i></button>
+    }
+
+    <h3 class="clearfix h3-hot-keyword">热搜关键字：</h3>
+    <div class="hot-keyword">
+        <ul class="list-inline">
+            <li><a href="/product/list?s=连衣裙&r=0">连衣裙</a></li>
+            <li><a href="/product/list?s=背带裙&r=0">背带裙</a></li>
+            <li><a href="/product/list?s=吊带&r=0">吊带</a></li>
+            <li><a href="/product/list?s=短裤女&r=0">短裤 女</a></li>
+            <li><a href="/product/list?s=t恤女&r=0">t恤 女</a></li>
+            <li><a href="/product/list?s=牛仔裤女&r=0">牛仔裤 女</a></li>
+            <li><a href="/product/list?s=小白鞋&r=0">小白鞋</a></li>
+            <li><a href="/product/list?s=低帮鞋&r=0">低帮鞋</a></li>
+            <li><a href="/product/list?s=T恤 男&r=0">T恤 男</a></li>
+            <li><a href="/product/list?s=手机壳&r=0">手机壳</a></li>
+            <li><a href="/product/list?s=三只松鼠&r=0">三只松鼠</a></li>
+            <li><a href="/product/list?s=沙发&r=0">沙发</a></li>
+            <li><a href="/product/list?s=实木&r=0">实木</a></li>
+        </ul>
+    </div>
+    <h3 class="clearfix">搜索店铺：</h3>
+    @using (Html.BeginForm("index", "dian", FormMethod.Get))
+    {
+        @Html.TextBox("q", "", new { @class = "txt", placeholder = "输入搜索关键字..." })
+        <button class="btn-search btn-submit"><i class="iconfont"> &#xe60d; </i></button>
+    }
+
+</div>
